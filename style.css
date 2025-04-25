@@ -21,6 +21,7 @@ header {
   padding: 1rem 2rem;
   background: var(--card);
   box-shadow: var(--shadow);
+  border-bottom: 1px solid #e0e4ea;
 }
 h1 {
   margin: 0;
@@ -36,26 +37,71 @@ h1 {
 main {
   max-width: 900px;
   margin: 2rem auto;
-  padding: 0 1rem;
+  padding: 2rem 2.5rem;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
 }
 section {
   margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #ececec;
+}
+section:last-child {
+  border-bottom: none;
+}
+#searchForm {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+#searchInput {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid #d0d4db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8fafd;
+  transition: border 0.2s;
+}
+#searchInput:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+#searchForm button[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#searchForm button[type="submit"]:hover {
+  background: #2563eb;
 }
 .book-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 .book-card {
   background: var(--card);
   border-radius: 10px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: background 0.3s;
+  min-height: 340px;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.book-card:hover {
+  box-shadow: 0 8px 32px rgba(79,140,255,0.13);
+  transform: translateY(-4px) scale(1.03);
 }
 .book-card img {
   width: 100px;
@@ -78,6 +124,41 @@ section {
 .book-card button, .book-card input[type="checkbox"] {
   margin-top: 0.5rem;
 }
+.book-card button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+  transition: background 0.2s;
+}
+.book-card button:hover {
+  background: #2563eb;
+}
+.book-card textarea {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 6px;
+  border: 1px solid #e0e4ea;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.97rem;
+  resize: vertical;
+  background: #f8fafd;
+  transition: border 0.2s;
+}
+.book-card textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+.book-card input[type="checkbox"] {
+  accent-color: var(--accent);
+  margin-top: 0.7rem;
+  transform: scale(1.2);
+}
 #clearList {
   background: var(--accent);
   color: #fff;
@@ -85,7 +166,19 @@ section {
   padding: 0.4rem 1rem;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 0.7rem;
+  margin-bottom: 1.2rem;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+#clearList:hover {
+  background: #2563eb;
+}
+h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+  color: var(--accent);
+  letter-spacing: 0.5px;
 }
 /* Dark mode */
 body.dark {
@@ -96,13 +189,16 @@ body.dark {
 }
 @media (max-width: 600px) {
   main {
-    padding: 0 0.2rem;
+    padding: 0.5rem 0.2rem;
   }
   .book-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
   header {
     flex-direction: column;
     gap: 0.7rem;
+  }
+  section {
+    padding-bottom: 0.7rem;
   }
 }
