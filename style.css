@@ -1,0 +1,108 @@
+/* Readify - Modern Book Recommender & Tracker */
+:root {
+  --bg: #f5f6fa;
+  --text: #222;
+  --card: #fff;
+  --accent: #4f8cff;
+  --shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  transition: background 0.3s, color 0.3s;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+#darkModeToggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+section {
+  margin-bottom: 2.5rem;
+}
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+.book-card {
+  background: var(--card);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.3s;
+}
+.book-card img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.7rem;
+}
+.book-card h3 {
+  font-size: 1.1rem;
+  margin: 0.3rem 0 0.2rem 0;
+  text-align: center;
+}
+.book-card p {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem 0;
+  color: #555;
+  text-align: center;
+}
+.book-card button, .book-card input[type="checkbox"] {
+  margin-top: 0.5rem;
+}
+#clearList {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.7rem;
+}
+/* Dark mode */
+body.dark {
+  --bg: #181a1b;
+  --text: #f5f6fa;
+  --card: #23272f;
+  --accent: #7aa2f7;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 0 0.2rem;
+  }
+  .book-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  header {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}

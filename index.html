@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Readify - Book Recommender & Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Readify</h1>
+    <button id="darkModeToggle" title="Toggle dark mode">🌓</button>
+  </header>
+  <main>
+    <section id="search-section">
+      <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search books by title or author..." required>
+        <button type="submit">🔍</button>
+      </form>
+    </section>
+    <section id="recommendations">
+      <h2>Recommendations</h2>
+      <div id="recommendationList" class="book-list"></div>
+    </section>
+    <section id="results">
+      <h2>Search Results</h2>
+      <div id="resultsList" class="book-list"></div>
+    </section>
+    <section id="toRead">
+      <h2>My To-Read List</h2>
+      <button id="clearList">Clear List</button>
+      <div id="toReadList" class="book-list"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
